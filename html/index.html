@@ -369,12 +369,14 @@
             }
 
             // Determine result based on the majority answer
-            let resultMessage = "Please complete the survey to get your result.";
-            if (answers.a > answers.b && answers.a > answers.c) {
+            let resultMessage = "";
+            if(answers.a === 0 && answers.b === 0 && answers.c === 0) {
+                resultMessage = "Please select answers for all questions to get the result.";
+            } else if (answers.a >= answers.b && answers.a >= answers.c) {
                 resultMessage = "You have a very serious and proactive attitude towards studying. You know how to manage your time effectively, utilize learning resources, and maintain good habits. These are key factors that contribute to your academic success.";
-            } else if (answers.b > answers.a && answers.b > answers.c) {
+            } else if (answers.b >= answers.a && answers.b >= answers.c) {
                 resultMessage = "You have an average level of study awareness and could benefit from adjusting some habits. Improving your planning skills, enhancing discipline, and taking advantage of learning opportunities can help you make significant progress.";
-            } else if (answers.c > answers.a && answers.c > answers.b) {
+            } else if (answers.c >= answers.a && answers.c >= answers.b) {
                 resultMessage = "You might struggle with maintaining focus and organization in your studies. You need to develop better study habits, minimize distractions, and find motivation to improve your academic performance.";
             }
 
